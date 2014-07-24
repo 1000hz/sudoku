@@ -1,0 +1,25 @@
+{
+  "name": "sudoku",
+  "version": "0.0.0",
+  "description": "Has anyone seen my eraser?",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1000hz/sudoku.git"
+  },
+  "keywords": [
+    "sudoku"
+  ],
+  "author": "Cina Saffary <cinasaffary@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/1000hz/sudoku/issues"
+  },
+  "homepage": "https://github.com/1000hz/sudoku",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "sudoku",
+  "version": "0.0.0",
+  "homepage": "https://github.com/1000hz/sudoku",
+  "authors": [
+    "Cina Saffary <cinasaffary@gmail.com>"
+  ],
+  "description": "Has anyone seen my eraser?",
+  "keywords": [
+    "sudoku"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "vendor/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1"
+  }
+}
