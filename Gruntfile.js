@@ -28,7 +28,7 @@ module.exports = function(grunt) {
 
     clean: {
       dist: ['<%= config.dist %>'],
-      server: '<%= config.tmp %>'
+      tmp: '<%= config.tmp %>'
     },
 
     connect: {
@@ -81,7 +81,7 @@ module.exports = function(grunt) {
         options: { style: 'expanded' },
         files: [{
           expand: true,
-          cwd: 'app/assets/stylesheets',
+          cwd: '<%= config.styles %>',
           src: ['**/*.scss', '!**/_*.scss'],
           dest: '<%= config.tmp %>/assets/stylesheets',
           ext: '.css',
