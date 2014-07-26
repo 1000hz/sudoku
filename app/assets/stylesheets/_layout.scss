@@ -4,8 +4,8 @@ body {
   background-color: #fff;
   background-repeat: repeat;
   background-position: left top;
-  @include img-retina("/assets/images/pattern-grid@1x.jpg",
-                      "/assets/images/pattern-grid@2x.jpg",
+  @include img-retina("../../assets/images/pattern-grid@1x.jpg",
+                      "../../assets/images/pattern-grid@2x.jpg",
                       18px, 18px);
 }
 
