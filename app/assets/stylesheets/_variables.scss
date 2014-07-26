@@ -1,0 +1,20 @@
+$responsive-breakpoint:             500px;
+$gutter-width:                      15px;
+
+
+$font-family-base:                  "ff-clan-web-pro", Helvetica, Arial, sans-serif;
+$font-family-headings:              "ff-clan-web-pro-wide", Helvetica, Arial, sans-serif;;
+$font-size-base:                    13px;
+$font-size-lg:                      $font-size-base * 1.25;
+$font-size-puzzle:                  16px;
+$font-size-puzzle-lg:               $font-size-puzzle * 1.25;
+
+$border-width-base:                 1px;
+$border-width-lg:                   2px;
+
+$puzzle-square-size:                30px;
+$puzzle-square-size-lg:             40px;
+$puzzle-region-size:                $puzzle-square-size    * 3 + 2 * $border-width-base;
+$puzzle-region-size-lg:             $puzzle-square-size-lg * 3 + 2 * $border-width-lg;
+$puzzle-size:                       $puzzle-region-size    * 3 + 4 * $border-width-base;
+$puzzle-size-lg:                    $puzzle-region-size-lg * 3 + 4 * $border-width-base;
