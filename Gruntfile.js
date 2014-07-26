@@ -50,28 +50,41 @@ module.exports = function(grunt) {
       images: {
         files: [{
           expand: true,
-          src: '<%= config.images %>/assets/images/**/*.{png,gif,jpg}',
+          cwd: '<%= config.images %>',
+          src: '**/*.{png,gif,jpg}',
           dest: '<%= config.dist %>/assets/images'
         }]
       },
       scripts: {
         files: [{
           expand: true,
-          src: '<%= config.scripts %>/**/*.js',
+          cwd: '<%= config.scripts %>',
+          src: '**/*.js',
           dest: '<%= config.dist %>/assets/javascripts'
         }]
       },
       styles: {
         files: [{
           expand: true,
-          src: '<%= config.tmp %>/assets/stylesheets/**/*.css',
+          cwd: '<%= config.tmp %>/assets/stylesheets',
+          src: '**/*.css',
           dest: '<%= config.dist %>/assets/stylesheets'
         }]
       },
       html: {
         files: [{
-          src: 'app/index.html',
+          expand: true,
+          cwd: 'app',
+          src: '*.html',
           dest: '<%= config.dist %>'
+        }]
+      },
+      components: {
+        files: [{
+          expand: true,
+          cwd: '<%= config.components %>',
+          src: '**/*',
+          dest: '<%= config.dist %>/components'
         }]
       }
     },
