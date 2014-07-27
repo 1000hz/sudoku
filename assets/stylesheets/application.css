@@ -71,6 +71,7 @@
 body {
   font-family: "ff-clan-web-pro", Helvetica, Arial, sans-serif;
   font-size: 13px;
+  color: #070716;
   background-color: #fff;
   background-repeat: repeat;
   background-position: left top;
@@ -115,7 +116,7 @@ main {
 .puzzle, .puzzle-region, .puzzle-square {
   border-width: 1px;
   border-style: solid;
-  border-color: black;
+  border-color: #070716;
 }
 
 .puzzle {
@@ -144,24 +145,42 @@ main {
 }
 
 .puzzle-square {
+  position: relative;
   font-size: 16px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 0 #070716;
   text-align: center;
   width: 30px;
   height: 30px;
   padding: 0;
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.75);
   border-radius: 0;
   outline: 0;
+  cursor: pointer;
   -webkit-transition: -webkit-transform 100ms ease-in-out, background-color 100ms ease-in-out;
           transition: transform 100ms ease-in-out, background-color 100ms ease-in-out;
 }
+.puzzle-square::-moz-selection {
+  color: rgba(0, 0, 0, 0);
+}
+.puzzle-square::selection {
+  color: rgba(0, 0, 0, 0);
+}
 .puzzle-square[readonly] {
-  font-weight: bold;
+  font-weight: normal;
+  z-index: -1;
+}
+.puzzle-square:not([readonly]):hover {
+  background-color: #fff;
+  -webkit-transform: scale3d(1.1, 1.1, 1);
+          transform: scale3d(1.1, 1.1, 1);
 }
 .puzzle-square:not([readonly]):focus {
   background-color: #fff;
   -webkit-transform: scale3d(1.4, 1.4, 1);
           transform: scale3d(1.4, 1.4, 1);
+  z-index: 1;
 }
 .puzzle-square::-webkit-inner-spin-button, .puzzle-square::-webkit-outer-spin-button {
   appearance: none;

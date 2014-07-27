@@ -7,6 +7,10 @@ define(function (require) {
   var Puzzle = function (options) {
     this.options = options || {}
     this.$el     = this.getElement()
+
+    this.spec = this.options.spec
+    this.data = this.options.data
+
     this.regions = this.generateRegions()
 
     this.render()
@@ -19,8 +23,9 @@ define(function (require) {
   }
 
   Puzzle.prototype.generateRegions = function () {
+    var puzzle = this
     return enumerate(9, function (i) {
-      return new SquareRegion(i)
+      return new SquareRegion(i, puzzle)
     })
   }
 
