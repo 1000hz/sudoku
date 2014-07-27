@@ -8,3 +8,7 @@ define (require) ->
     it "passes the index into the factory function", ->
       i = 0
       enumerate(5, (j) -> expect(i++).toBe j)
+
+    it "accepts a context argument", ->
+      factory = () -> expect(@foo).toBe "bar"
+      enumerate(1, factory, foo: "bar")
