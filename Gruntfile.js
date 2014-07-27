@@ -1,5 +1,5 @@
 module.exports = function(grunt) {
-  require('load-grunt-tasks')(grunt);
+  require('load-grunt-tasks')(grunt, {pattern: ['grunt-*', '!grunt-template-*']});
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -27,15 +27,16 @@ module.exports = function(grunt) {
     },
 
     clean: {
-      dist: ['<%= config.dist %>'],
-      tmp: '<%= config.tmp %>'
+      dist: '<%= config.dist %>',
+      tmp:  '<%= config.tmp %>',
+      coffeespecs: 'spec/coffee'
     },
 
     connect: {
       server: {
         options: {
           livereload: true,
-          base: ['<%= config.tmp %>', 'vendor', '<%= config.components %>', 'app']
+          base: ['.', '<%= config.tmp %>', 'vendor', '<%= config.components %>', 'app']
         }
       },
       dist: {
@@ -43,6 +44,18 @@ module.exports = function(grunt) {
           base: ['<%= config.dist %>'],
           keepalive: true
         }
+      }
+    },
+
+    coffee: {
+      specs: {
+        files: [{
+          expand: true,
+          cwd: 'spec',
+          src: '**/*.spec.coffee',
+          dest: 'spec/coffee',
+          ext: '.spec.js'
+        }]
       }
     },
 
@@ -89,6 +102,23 @@ module.exports = function(grunt) {
       }
     },
 
+    jasmine: {
+      test: {
+        src: ['assets/javascripts/**/*.js'],
+        options: {
+          specs: 'spec/**/*.spec.js',
+          host: 'http://0.0.0.0:8000',
+          template: require('grunt-template-jasmine-requirejs'),
+          templateOptions: {
+            requireConfigFile: '<%= config.scripts %>/main.js',
+            requireConfig: {
+              baseUrl: 'assets/javascripts'
+            }
+          }
+        }
+      }
+    },
+
     sass: {
       styles: {
         options: { style: 'expanded' },
@@ -115,6 +145,8 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('styles', ['sass', 'autoprefixer']);
+
+  grunt.registerTask('test', ['connect:server', 'coffee:specs', 'jasmine', 'clean:coffeespecs']);
 
   grunt.registerTask('server', function (target) {
     if (target === 'dist') {
