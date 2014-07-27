@@ -175,12 +175,13 @@ main {
   background-color: #fff;
   -webkit-transform: scale3d(1.1, 1.1, 1);
           transform: scale3d(1.1, 1.1, 1);
+  z-index: 1;
 }
 .puzzle-square:not([readonly]):focus {
   background-color: #fff;
   -webkit-transform: scale3d(1.4, 1.4, 1);
           transform: scale3d(1.4, 1.4, 1);
-  z-index: 1;
+  z-index: 2;
 }
 .puzzle-square::-webkit-inner-spin-button, .puzzle-square::-webkit-outer-spin-button {
   appearance: none;
