@@ -8,7 +8,7 @@ define(function (require) {
     this.$el = this.getElement()
 
     if (this.options.prefill) {
-      this.$el.attr('readonly', true).val(this.options.prefill)
+      this.$el.attr({readonly: true, tabindex: -1}).val(this.options.prefill)
     }
 
     this.$el.on('input.sudoku', $.proxy(this.constrainInput, this))

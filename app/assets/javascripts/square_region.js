@@ -4,8 +4,9 @@ define(function (require) {
   var enumerate = require('lib/enumerate')
 
 
-  var SquareRegion = function (id) {
+  var SquareRegion = function (id, puzzle) {
     this.id      = id
+    this.puzzle  = puzzle
     this.$el     = this.getElement()
     this.squares = this.generateSquares()
 
@@ -19,9 +20,17 @@ define(function (require) {
   }
 
   SquareRegion.prototype.generateSquares = function () {
-    var id = this.id
+    var puzzle   = this.puzzle
+    var regionId = this.id
+
     var squares = enumerate(9, function (i) {
-      return new Square(id * 9 + i)
+      var id = regionId * 9 + i
+      var options = {}
+
+           if (+puzzle.spec[id]) options.prefill = puzzle.spec[id]
+      else if (+puzzle.data[id]) options.value   = puzzle.spec[id]
+
+      return new Square(id, options)
     })
 
     return squares

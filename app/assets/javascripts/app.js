@@ -10,7 +10,10 @@ define(function (require) {
     if (!this.options.el) throw new Error("App started without `options.el`")
     this.$el = $(this.options.el)
     // TODO: load/generate puzzle, load state
-    this.puzzle = new Puzzle()
+    this.puzzle = new Puzzle({
+      spec: require('lib/sample_puzzle'),
+      data: require('lib/sample_puzzle')
+    })
 
     this.$el.append(this.puzzle.$el)
   }
