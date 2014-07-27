@@ -26,9 +26,12 @@ define(function (require) {
     var input = this.$el.val().slice(caretPos, caretPos + 1)
     var acceptedInputs = /(^[1-9]?$)/
 
-    acceptedInputs.test(input)
-      ? this.$el.val(input).data('sudoku.previousVal', input)
-      : this.$el.val(this.$el.data('sudoku.previousVal'))
+    acceptedInputs.test(input) && (this.value = input)
+    this.updateInputValue()
+  }
+
+  Square.prototype.updateInputValue = function () {
+    this.$el.val(this.value)
   }
 
 
