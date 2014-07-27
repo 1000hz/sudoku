@@ -1,9 +1,11 @@
 $responsive-breakpoint:             500px;
 $gutter-width:                      15px;
 
+$black:                             #070716;
 
 $font-family-base:                  "ff-clan-web-pro", Helvetica, Arial, sans-serif;
-$font-family-headings:              "ff-clan-web-pro-wide", Helvetica, Arial, sans-serif;;
+$font-family-headings:              "ff-clan-web-pro-wide", Helvetica, Arial, sans-serif;
+$font-color-primary:                $black;
 $font-size-base:                    13px;
 $font-size-lg:                      $font-size-base * 1.25;
 $font-size-puzzle:                  16px;
