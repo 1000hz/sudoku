@@ -27,8 +27,10 @@ define(function (require) {
       var id = regionId * 9 + i
       var options = {}
 
-           if (+puzzle.spec[id]) options.prefill = puzzle.spec[id]
-      else if (+puzzle.data[id]) options.value   = puzzle.spec[id]
+      if (puzzle.spec && puzzle.data) {
+        if (+puzzle.spec[id]) options.prefill = puzzle.spec[id]
+        if (+puzzle.data[id]) options.value   = puzzle.data[id]
+      }
 
       return new Square(id, options)
     })
