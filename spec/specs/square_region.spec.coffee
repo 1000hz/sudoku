@@ -4,18 +4,18 @@ define (require) ->
   puzzleData   = require('lib/sample_puzzle')
 
   beforeEach ->
-    @region = new SquareRegion(1, new Puzzle(spec: puzzleData, data: puzzleData))
+    @region = new SquareRegion(1, new Puzzle(puzzleData))
 
   describe "SquareRegion", ->
     it "has an id", ->
       expect(@region.id).toBe 1
 
     it "has an $el", ->
-      expect(@region.$el).toBeDefined
+      expect(@region.$el).toBeDefined()
       expect(@region.$el.constructor.prototype).toBe $.fn
 
     it "has an array of 9 Squares", ->
-      expect(@region.squares).toBeDefined
+      expect(@region.squares).toBeDefined()
       expect(@region.squares.length).toBe 9
 
     it "renders its squares into its element", ->
