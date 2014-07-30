@@ -1,8 +1,10 @@
 define (require) ->
+  Puzzle       = require('puzzle')
   SquareRegion = require('square_region')
+  puzzleData   = require('lib/sample_puzzle')
 
   beforeEach ->
-    @region = new SquareRegion(1)
+    @region = new SquareRegion(1, new Puzzle(spec: puzzleData, data: puzzleData))
 
   describe "SquareRegion", ->
     it "has an id", ->
