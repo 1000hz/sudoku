@@ -5,5 +5,6 @@ require.config({
 })
 
 require(['jquery', 'app'], function ($, App) {
+  window.App = App
   App.start({el: '.puzzle-container'})
 })

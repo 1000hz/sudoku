@@ -25,22 +25,16 @@ define(function (require) {
 
     var squares = enumerate(9, function (i) {
       var id = regionId * 9 + i
-      var options = {}
-
-           if (+puzzle.spec[id]) options.prefill = puzzle.spec[id]
-      else if (+puzzle.data[id]) options.value   = puzzle.spec[id]
-
-      return new Square(id, options)
+      return new Square(id, {initial: +puzzle.spec[id]})
     })
 
     return squares
   }
 
   SquareRegion.prototype.renderSquares = function () {
-    var _this = this
     this.squares.forEach(function (square) {
-      _this.$el.append(square.$el)
-    })
+      this.$el.append(square.$el)
+    }, this)
   }
 
   return SquareRegion

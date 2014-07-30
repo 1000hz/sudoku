@@ -2,18 +2,23 @@ define(function (require) {
   var $            = require('jquery')
   var enumerate    = require('lib/enumerate')
   var SquareRegion = require('square_region')
+  var Validator    = require('lib/validator')
 
 
-  var Puzzle = function (options) {
-    this.options = options || {}
-    this.$el     = this.getElement()
+  var Puzzle = function (spec) {
+    this.$el       = this.getElement()
+    this.validator = new Validator(this)
 
-    this.spec = this.options.spec
-    this.data = this.options.data
-
+    this.spec    = spec
+    this.squares = []
     this.regions = this.generateRegions()
 
+    this.rowSquares    = this.getSlices("row")
+    this.columnSquares = this.getSlices("column")
+    this.regionSquares = this.getSlices("region")
+
     this.render()
+
     this.$el.data('sudoku.puzzle', this)
   }
 
@@ -25,15 +30,27 @@ define(function (require) {
   Puzzle.prototype.generateRegions = function () {
     var puzzle = this
     return enumerate(9, function (i) {
-      return new SquareRegion(i, puzzle)
+      var region = new SquareRegion(i, puzzle)
+      region.squares.forEach(function (square) {
+        puzzle.squares.push(square)
+      })
+      return region
     })
   }
 
-  Puzzle.prototype.render = function () {
-    var _this = this
-    this.regions.forEach(function (region) {
-      _this.$el.append(region.$el)
+  Puzzle.prototype.getSlices = function (property) {
+    var slices = enumerate(9, function () { return [] })
+    this.squares.forEach(function (square) {
+      slices[square[property]].push(square)
     })
+
+    return slices
+  }
+
+  Puzzle.prototype.render = function () {
+    this.regions.forEach(function (region) {
+      this.$el.append(region.$el)
+    }, this)
   }
 
   return Puzzle

@@ -1,5 +1,6 @@
 define(function (require) {
-  var $ = require('jquery')
+  var $      = require('jquery')
+  var Mapper = require('lib/coordinate_mapper')
 
 
   var Square = function (id, options) {
@@ -7,8 +8,14 @@ define(function (require) {
     this.options = options || {}
     this.$el = this.getElement()
 
-    if (this.options.prefill) {
-      this.$el.attr({readonly: true, tabindex: -1}).val(this.options.prefill)
+    this.row    = Mapper.rowFor(this.id)
+    this.column = Mapper.columnFor(this.id)
+    this.region = Mapper.regionFor(this.id)
+
+    if (this.options.initial) {
+      this.$el.attr({readonly: true, tabindex: -1})
+      this.setValue(this.options.initial)
+      this.updateInputValue()
     }
 
     this.$el.on('input.sudoku', $.proxy(this.constrainInput, this))
@@ -26,8 +33,15 @@ define(function (require) {
     var input = this.$el.val().slice(caretPos, caretPos + 1)
     var acceptedInputs = /(^[1-9]?$)/
 
-    acceptedInputs.test(input) && (this.value = input)
+    acceptedInputs.test(input) && this.setValue(input)
     this.updateInputValue()
+  }
+
+  Square.prototype.setValue = function (value) {
+    var previous = this.value
+    if (previous === value) return
+    this.value = value;
+    this.$el.trigger('change:value.sudoku', [this, previous, value])
   }
 
   Square.prototype.updateInputValue = function () {
