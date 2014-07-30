@@ -3,7 +3,7 @@ define (require) ->
 
   describe "App", ->
     describe "App.start", ->
-      beforeEach -> App.start(el: $('<div/>'))
+      beforeEach -> App.start(el: $('<div/>'), store: sessionStorage)
 
       it "gets an element", ->
         expect(App.$el).toBeDefined()

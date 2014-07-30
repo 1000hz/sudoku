@@ -1,5 +1,6 @@
 define(function (require) {
-  var $ = require('jquery')
+  var $      = require('jquery')
+  var Mapper = require('lib/coordinate_mapper')
 
 
   var Square = function (id, options) {
@@ -7,9 +8,15 @@ define(function (require) {
     this.options = options || {}
     this.$el = this.getElement()
 
-    this.options.prefill && this.$el.attr({readonly: true, tabindex: -1})
-    this.setValue(this.options.prefill || this.options.value || '')
-    this.updateInputValue()
+    this.row    = Mapper.rowFor(this.id)
+    this.column = Mapper.columnFor(this.id)
+    this.region = Mapper.regionFor(this.id)
+
+    if (this.options.initial) {
+      this.$el.attr({readonly: true, tabindex: -1})
+      this.setValue(this.options.initial)
+      this.updateInputValue()
+    }
 
     this.$el.on('input.sudoku', $.proxy(this.constrainInput, this))
 
