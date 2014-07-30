@@ -36,7 +36,9 @@
   border-radius: 0;
   outline: 0;
   cursor: pointer;
-  transition: transform 100ms ease-in-out, background-color 100ms ease-in-out;
+  transition: transform    100ms ease-in-out,
+              border-color 300ms ease-in-out,
+              color        300ms ease-in-out;
 
   &::selection {
     background-color: rgba(0,0,0,0);
@@ -59,12 +61,9 @@
     z-index: 2;
   }
 
-  &::-webkit-inner-spin-button,
-  &::-webkit-outer-spin-button {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    margin: 0;
+  &.error {
+    border-color: $color-error;
+    color:        $color-error;
   }
 
   @media (min-width: $responsive-breakpoint) {
