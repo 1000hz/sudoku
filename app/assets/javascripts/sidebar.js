@@ -1,5 +1,7 @@
 define(function (require) {
   var $ = require('jquery')
+          require('lib/jquery-transitionEnd')
+
 
   var Sidebar = function () {
     this.$main    = $('main')
@@ -24,7 +26,7 @@ define(function (require) {
   }
 
   Sidebar.prototype.close = function () {
-    this.$main.one('webkitTransitionEnd', $.proxy(function () {
+    this.$main.one($.support.transitionEnd, $.proxy(function () {
       this.$overlay.remove()
       $('.sidebar').removeClass('open')
     }, this)).removeClass('sidebar-open')
