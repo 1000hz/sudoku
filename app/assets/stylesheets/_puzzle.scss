@@ -54,12 +54,14 @@
   }
 
   &:not([readonly]):hover {
+    position: relative;
     background-color: #fff;
     transform: scale3d(1.15, 1.15, 1);
     z-index: 100;
   }
 
   &:not([readonly]):focus {
+    position: relative;
     background-color: #fff;
     transform: scale3d(1.4, 1.4, 1);
     z-index: 200;
@@ -73,13 +75,6 @@
   @media (min-width: $responsive-breakpoint) {
     font-size: $font-size-puzzle-lg;
     @include square($puzzle-square-size-lg);
-
-    // Can't position this by default since Safari has a weird
-    // rendering issue with a positioned and transform:scale3d element.
-    // So I'm only positioning it for large viewports (non-mobile a.k.a. non-Safari)
-    // The positioning is necessary for the z-indexing to take effect.
-    // Trade-offs...
-    position: relative;
   }
 }
 
