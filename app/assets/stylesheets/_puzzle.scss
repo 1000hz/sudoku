@@ -30,7 +30,6 @@
 }
 
 .puzzle-square {
-  position: relative;
   font-size: $font-size-puzzle;
   text-align: center;
   @include square($puzzle-square-size);
@@ -74,6 +73,13 @@
   @media (min-width: $responsive-breakpoint) {
     font-size: $font-size-puzzle-lg;
     @include square($puzzle-square-size-lg);
+
+    // Can't position this by default since Safari has a weird
+    // rendering issue with a positioned and transform:scale3d element.
+    // So I'm only positioning it for large viewports (non-mobile a.k.a. non-Safari)
+    // The positioning is necessary for the z-indexing to take effect.
+    // Trade-offs...
+    position: relative;
   }
 }
 
