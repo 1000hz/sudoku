@@ -9,16 +9,29 @@
     <link rel="stylesheet" href="assets/stylesheets/application.css">
   </head>
   <body>
-    <header>
-      <nav>
-      </nav>
-    </header>
+    <aside class="sidebar">
+      <ul>
+        <li><a class="sidebar-btn" data-action="reset">Reset</a></li>
+        <li><a class="sidebar-btn" data-action="cheat">Cheat</a></li>
+      </ul>
+    </aside>
 
     <main>
-      <div class="container">
-        <h1>数独 Sudoku</h1>
-        <div class="puzzle-container"></div>
-      </div>
+      <header class="navbar">
+        <nav class="container">
+          <ul>
+            <li><button type="button" class="menu-toggle" data-toggle="sidebar"></button></li>
+            <li><a class="navbar-brand">Sudoku</a></li>
+          </ul>
+          <ul class="navbar-right">
+            <li>
+              <span>By <a href="https://github.com/1000hz">Cina Saffary</a></span>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="container puzzle-container"></div>
     </main>
 
     <script data-main="assets/javascripts/main" src="components/requirejs/require.js"></script>

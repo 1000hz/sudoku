@@ -2,12 +2,6 @@ body {
   font-family: $font-family-base;
   font-size: $font-size-base;
   color: $black;
-  background-color: #fff;
-  background-repeat: repeat;
-  background-position: left top;
-  @include img-retina("../../assets/images/pattern-grid@1x.jpg",
-                      "../../assets/images/pattern-grid@2x.jpg",
-                      18px, 18px);
 }
 
 h1, h2, h3, h4 h5, h6 {
@@ -23,7 +17,18 @@ h1 {
 }
 
 main {
-  padding-bottom: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  background-color: #fff;
+  background-repeat: repeat;
+  background-position: left top;
+  @include img-retina("../../assets/images/pattern-grid@1x.jpg",
+                      "../../assets/images/pattern-grid@2x.jpg",
+                      18px, 18px);
 }
 
 .container {
@@ -35,4 +40,12 @@ main {
   @media (min-width: $responsive-breakpoint) {
     width: $puzzle-size-lg + 2 * $gutter-width;
   }
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
 }

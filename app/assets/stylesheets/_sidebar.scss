@@ -1,0 +1,64 @@
+.sidebar {
+  display: none;
+  width: $sidebar-width;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -100;
+  background-color: $black;
+  background-repeat: repeat;
+  background-position: left top;
+  @include img-retina("../../assets/images/pattern-grid-dark@1x.gif",
+                      "../../assets/images/pattern-grid-dark@2x.gif",
+                      18px, 18px);
+
+
+  &.open {
+    display: block;
+  }
+
+  ul { margin-top: 100px;}
+}
+
+.sidebar-btn {
+  font-family: $font-family-headings;
+  display: block;
+  padding: 14px;
+  border-top: 1px solid silver;
+  border-bottom: 1px solid silver;
+  margin-top: -1px;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(255,255,255,.05);
+  }
+}
+
+main {
+  transition: transform 100ms ease-in-out;
+}
+
+main.sidebar-open {
+  transform: translate3d($sidebar-width, 0, 0);
+  box-shadow: -10px 0 15px rgba(0,0,0,.5)
+}
+
+.sidebar-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $black;
+  opacity: 0;
+  transition: opactiy 5000ms ease-in-out;
+  z-index: 1000;
+  cursor: pointer;
+
+  .sidebar-open & {
+    opacity: .6;
+  }
+}

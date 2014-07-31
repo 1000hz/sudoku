@@ -3,7 +3,17 @@
   height: $size;
 }
 
-/* Taken from Bootstrap */
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
 @mixin img-retina($file-1x, $file-2x, $width-1x, $height-1x) {
   background-image: url($file-1x);
 
