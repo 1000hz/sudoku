@@ -1,7 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;
   color: $black;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $link-color-hover;
+  }
 }
 
 h1, h2, h3, h4 h5, h6 {
@@ -14,6 +32,12 @@ h1 {
   @media (min-width: $responsive-breakpoint) {
     font-size: 2.5em;
   }
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 main {
@@ -40,12 +64,4 @@ main {
   @media (min-width: $responsive-breakpoint) {
     width: $puzzle-size-lg + 2 * $gutter-width;
   }
-}
-
-.pull-left {
-  float: left;
-}
-
-.pull-right {
-  float: right;
 }

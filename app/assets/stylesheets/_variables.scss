@@ -3,6 +3,7 @@ $gutter-width:                      15px;
 
 $black:                             #070716;
 $color-error:                       #EB1F1F;
+$sky-blue:                          #1FBAD6;
 
 $font-family-base:                  "ff-clan-web-pro", Helvetica, Arial, sans-serif;
 $font-family-headings:              "ff-clan-web-pro-wide", Helvetica, Arial, sans-serif;
@@ -11,6 +12,9 @@ $font-size-base:                    13px;
 $font-size-lg:                      $font-size-base * 1.25;
 $font-size-puzzle:                  16px;
 $font-size-puzzle-lg:               $font-size-puzzle * 1.25;
+
+$link-color:                        $font-color-primary;
+$link-color-hover:                  $sky-blue;
 
 $navbar-height:                     40px;
 $sidebar-width:                     200px;
