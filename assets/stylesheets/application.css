@@ -295,7 +295,6 @@ main.sidebar-open {
 }
 
 .puzzle-square {
-  position: relative;
   font-size: 16px;
   text-align: center;
   width: 30px;
@@ -340,6 +339,7 @@ main.sidebar-open {
     font-size: 20px;
     width: 40px;
     height: 40px;
+    position: relative;
   }
 }
 
