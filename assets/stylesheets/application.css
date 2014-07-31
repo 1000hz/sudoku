@@ -1,19 +1,4 @@
 @import url(../../components/normalize.css/normalize.css);
-* {
-  box-sizing: border-box;
-}
-
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
 /*
  * The Typekit service used to deliver this font or fonts for use on websites
  * is provided by Adobe and is subject to these Terms of Use
@@ -73,10 +58,27 @@ ul {
   font-weight: 500;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "ff-clan-web-pro", Helvetica, Arial, sans-serif;
   font-size: 13px;
   color: #070716;
+}
+
+a {
+  color: #070716;
+  text-decoration: none;
+}
+a:hover {
+  color: #1fbad6;
 }
 
 h1, h2, h3, h4 h5, h6 {
@@ -90,6 +92,12 @@ h1 {
   h1 {
     font-size: 2.5em;
   }
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 main {
@@ -123,21 +131,13 @@ main {
   }
 }
 
-.pull-left {
-  float: left;
-}
-
-.pull-right {
-  float: right;
-}
-
 .navbar {
   position: relative;
   min-height: 40px;
   color: #fff;
   background-color: #070716;
   border-bottom: 1px solid silver;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 .navbar:before, .navbar:after {
   content: " ";
@@ -148,7 +148,9 @@ main {
 }
 .navbar a {
   color: #fff;
-  text-decoration: none;
+}
+.navbar a:hover {
+  color: #1fbad6;
 }
 .navbar nav > ul > li {
   float: left;
@@ -275,8 +277,8 @@ main.sidebar-open {
   }
 }
 .puzzle.puzzle-solved {
-  -webkit-animation: glowing 5s infinite ease-in-out;
-          animation: glowing 5s infinite ease-in-out;
+  -webkit-animation: glowing 2s infinite ease-in-out;
+          animation: glowing 2s infinite ease-in-out;
 }
 
 .puzzle-region {
