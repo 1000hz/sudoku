@@ -2,20 +2,20 @@ define(function (require) {
   var $ = require('jquery')
 
   $.support.transitionEnd = (function () {
-    var events = [
-      'webkitTransitionEnd',
-      'transitionend',
-      'oTransitionEnd',
-      'otransitionend'
-    ]
+    var transEndEventNames = {
+      WebkitTransition : 'webkitTransitionEnd',
+      MozTransition    : 'transitionend',
+      OTransition      : 'oTransitionEnd otransitionend',
+      transition       : 'transitionend'
+    }
 
     var el = document.createElement('transitionEndTest')
 
-    events.forEach(function (event) {
-      if (el.style[event] !== undefined) {
-        return event
+    for (var name in transEndEventNames) {
+      if (el.style[name] !== undefined) {
+        return transEndEventNames[name]
       }
-    })
+    }
 
     return false
   })()
