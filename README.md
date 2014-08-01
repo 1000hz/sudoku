@@ -3,7 +3,7 @@
 ### View the app: https://1000hz.github.io/sudoku
 
 This project was a pre-interview screening test I completed for a major tech company in San Francisco.
-The requirements were to build a Sudoku in a week with the following features:
+The requirements were to build a Sudoku app in a week with the following features:
 * Looks appealing
 * Mobile-friendly
 * Cross-browser support (Chrome/FF/IE10)
